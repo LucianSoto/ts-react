@@ -1,18 +1,25 @@
-import React from 'react';
+import React , { useState }from 'react';
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { StringLiteral } from 'typescript';
+// import { StringLiteral } from 'typescript';
+import { InputField } from './components/InputField';
+import {Todo} from './model'
 
-let name: String
-let age: number;
+const App: React.FC = () => {
+  const [todo, setTodo] = useState<string>('')
+  const [todos, setTodos] = useState<Todo[]>([])
 
-function App() {
+  const handleAdd = () => {}
+
+  console.log(todo)
   return (
     <Routes>
-      <Route path="/" element={<h1>Hi</h1>} />
-      <Route path="*" element={<Navigate to="/"/>} />
+      <Route path="/" element={<><h1>Taskiez</h1><InputField todo={todo} setTodo={setTodo}/></>} />
+      
     </Routes>
   )
 }
 
 export default App;
+
+
