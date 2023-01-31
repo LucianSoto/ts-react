@@ -9,12 +9,28 @@ const App: React.FC = () => {
   const [todo, setTodo] = useState<string>('')
   const [todos, setTodos] = useState<Todo[]>([])
 
-  const handleAdd = () => {}
+  const handleAdd = (e: React.FormEvent) => {
+    e.preventDefault()
 
-  console.log(todo)
+    if(todo) {
+      setTodos([...todos, {id:Date.now(), todo, isDone: false}])
+      setTodo('')
+    }
+  }
+
+  console.log(todo, todos)
   return (
     <Routes>
-      <Route path="/" element={<><h1>Taskiez</h1><InputField todo={todo} setTodo={setTodo}/></>} />
+      <Route path="/" element={
+        <>
+          <h1>Taskiez</h1>
+          <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
+          {/* <TodoList /> */}
+          {todos.map((t) => (
+            <li>{t.todo}</li>
+          ))}
+        </>
+      } />
       
     </Routes>
   )
