@@ -58,7 +58,7 @@
   flex-direction: column;
   width: 47.5%;
   padding: 15px;
-  background-color: rgb(50, 195, 205);
+  /* background-color: rgb(50, 195, 205); */
 }
 
 .dragactive {
@@ -131,5 +131,8 @@
   .todos {
     width: 95%;
     margin-bottom: 10px;
+  }
+  .todos__single {
+    width: 100%;
   }
 }

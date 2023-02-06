@@ -13,14 +13,14 @@ export const InputField = ({todo, setTodo, handleAdd} : Props ) => {
     <form className='input' onSubmit={(e)=> {handleAdd(e)
       inputRef.current?.blur()
     }}>
-      FORM
+      {/* FORM */}
       <input 
         type="input" 
         ref={inputRef}
         placeholder='Enter a Task' 
         value={todo}
         onChange={(e)=> setTodo(e.target.value)}
-        className="input__submit" />
+        className="input__box" />
       <button className='input_submit' type='submit'>
         Go
       </button>
