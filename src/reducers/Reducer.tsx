@@ -1,12 +1,14 @@
 import React, { useReducer } from 'react'
 import { Todo } from '../model'
 
-type Actions = 
+// const initialTodos = []
+
+export type Actions = 
   { type: "add", payload: string } |
   { type: "remove", payload: number } |
   { type: "done", payload: number }
 
-const TodoReduce = (state:Todo[], action: Actions) => {
+export const TodoReducer = (state:Todo[], action: Actions): Todo[] => {
   switch(action.type) {
     case "add":
       return [
@@ -18,20 +20,14 @@ const TodoReduce = (state:Todo[], action: Actions) => {
     case "done":
       return state.map((todo) => 
         todo.id !== action.payload ? { ...todo, isDone: !todo.isDone} 
-        : null
+        : null as any
+        // when returning null you can either turn off strictNullChecks from tsConfig or pass it as any type.
         )
     default: return state;
   }
 }
 
-const Reducer = () => {
 
 
-  return (
-    <div>
-      
-    </div>
-  )
-}
 
-export default Reducer
+
