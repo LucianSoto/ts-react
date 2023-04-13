@@ -10,7 +10,7 @@ import { TodoReducer } from './reducers/Reducer'
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>('')
-  // const [todos, setTodos] = useState<Todo[]>([])
+  const [todos, setTodos] = useState<Todo[]>([])
   const [state, dispatch] = useReducer(TodoReducer, [])
 
   const handleAdd = (e: React.FormEvent) => {
@@ -31,7 +31,7 @@ const App: React.FC = () => {
           <>
             <h1>Taskiez</h1>
             <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-            {/* <TodoList todos={todos} setTodos={setTodos} /> */}
+            <TodoList todos={todos} setTodos={setTodos} />
           </>
         } />
         
